@@ -15,6 +15,8 @@ public class LottoGame {
 
     private final Output output;
 
+    private final List<Lotto> lottos;
+
 
     private LottoGame(Input input, Output output) {
         this.input = input;
@@ -23,7 +25,7 @@ public class LottoGame {
         int money = this.input.moneyInput();
         int manualCount = this.input.manualLottoCountInput();
 
-        List<Lotto> lottos = new LottoGenerator().generate(money, manualCount);
+        lottos = new LottoGenerator().generate(money, manualCount);
 
         output.generatedLottoResultOutput(manualCount, money/Lotto.PRICE, lottos);
 
